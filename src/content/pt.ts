@@ -18,11 +18,11 @@ export const site = {
     "Machado Labs",
   ],
   email: "contato@machadolabs.com.br",
-  phone: "+55 (00) 00000-0000",
+  phone: "+55 48 99223-4557",
+  whatsapp:
+    "https://wa.me/5548992234557?text=Ol%C3%A1!%20Quero%20iniciar%20um%20projeto%20com%20a%20Machado%20Labs.",
   socials: [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "GitHub", href: "https://github.com" },
+    { label: "Instagram", href: "https://www.instagram.com/machadolabs.br/" },
   ],
 } as const;
 
@@ -72,7 +72,7 @@ export const hero = {
       title: "Experiência Digital Premium.",
       subtitle:
         "Interfaces que impressionam nos primeiros cinco segundos — e convertem nos próximos.",
-      cta: { label: "Iniciar projeto", href: "#contato" },
+      cta: { label: "Iniciar projeto", href: site.whatsapp },
     },
   ],
   scrollHint: "Role para explorar",

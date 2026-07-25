@@ -39,8 +39,17 @@ export default function Button({
     }
   };
 
+  const external = href.startsWith("http");
+
   return (
-    <a href={href} onClick={onClick} className={cn(base, styles[variant], className)} {...rest}>
+    <a
+      href={href}
+      onClick={onClick}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={cn(base, styles[variant], className)}
+      {...rest}
+    >
       {/* brilho que atravessa o botão no hover */}
       {variant === "gold" && (
         <span

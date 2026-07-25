@@ -55,6 +55,7 @@ const jsonLd = {
   name: site.name,
   url: site.url,
   email: site.email,
+  telephone: site.phone,
   description: site.description,
   logo: `${site.url}/brand/logo-mark.png`,
   sameAs: site.socials.map((s) => s.href),

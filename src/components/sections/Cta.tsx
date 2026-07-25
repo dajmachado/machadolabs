@@ -45,7 +45,7 @@ export default function Cta() {
         <Reveal delay={0.5}>
           <div className="mt-11 flex flex-col items-center gap-5">
             <Magnetic strength={0.35}>
-              <Button href={`mailto:${site.email}`} className="px-10 py-4 text-base">
+              <Button href={site.whatsapp} className="px-10 py-4 text-base">
                 {cta.button}
               </Button>
             </Magnetic>

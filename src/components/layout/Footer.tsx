@@ -59,6 +59,16 @@ export default function Footer() {
               <ul className="mt-5 space-y-3 text-sm text-mist-500">
                 <li>
                   <a
+                    href={site.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors duration-300 hover:text-gold-300"
+                  >
+                    {site.phone}
+                  </a>
+                </li>
+                <li>
+                  <a
                     href={`mailto:${site.email}`}
                     className="transition-colors duration-300 hover:text-gold-300"
                   >

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { nav } from "@/content/pt";
+import { nav, site } from "@/content/pt";
 import { scrollToAnchor } from "@/components/providers/SmoothScroll";
 import Magnetic from "@/components/ui/Magnetic";
 import Button from "@/components/ui/Button";
@@ -95,7 +95,7 @@ export default function Header() {
 
           <div className="hidden lg:block">
             <Magnetic>
-              <Button href="#contato" className="px-6 py-2.5 text-[13px]">
+              <Button href={site.whatsapp} className="px-6 py-2.5 text-[13px]">
                 {nav.cta}
               </Button>
             </Magnetic>
@@ -164,7 +164,7 @@ export default function Header() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex flex-col gap-4"
             >
-              <Button href="#contato" onClick={(e) => go(e as never, "#contato")} className="w-full">
+              <Button href={site.whatsapp} onClick={() => setOpen(false)} className="w-full">
                 {nav.cta}
               </Button>
               <p className="text-center text-xs tracking-[0.3em] text-mist-600">

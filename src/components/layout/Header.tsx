@@ -135,11 +135,11 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="noise fixed inset-0 z-[85] flex flex-col justify-between bg-ink-950/97 px-6 pb-10 pt-28 backdrop-blur-2xl lg:hidden"
-            initial={{ opacity: 0, clipPath: "circle(0% at calc(100% - 44px) 44px)" }}
-            animate={{ opacity: 1, clipPath: "circle(150% at calc(100% - 44px) 44px)" }}
-            exit={{ opacity: 0, clipPath: "circle(0% at calc(100% - 44px) 44px)" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="noise fixed inset-0 z-[85] flex flex-col justify-between bg-ink-950 px-6 pb-10 pt-28 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <nav aria-label="Menu mobile" className="flex flex-col gap-2">
               {nav.links.map((link, i) => (

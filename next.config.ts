@@ -5,9 +5,13 @@ import type { NextConfig } from "next";
  * 'unsafe-inline' em script/style é exigido pelo runtime do Next (hidratação)
  * e pelas animações do Motion; todo o restante fica travado na própria origem.
  */
+const isDev = process.env.NODE_ENV === "development";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  // 'unsafe-eval' apenas em dev: o React usa eval() para debug (source maps,
+  // callstacks). Em produção a política permanece sem eval.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",

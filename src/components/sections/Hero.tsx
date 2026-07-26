@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { hero } from "@/content/pt";
 import Button from "@/components/ui/Button";
@@ -56,32 +57,40 @@ export default function Hero() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Fundo vivo com parallax */}
+      {/* Fundo com parallax: aurora + imagem cinematográfica por slide */}
       <div ref={parallaxRef} className="absolute inset-[-4%] will-change-transform">
         <Aurora />
-      </div>
-
-      {/* Número gigante do slide, marca d'água */}
-      <AnimatePresence mode="popLayout">
-        <motion.span
-          key={`num-${index}`}
-          aria-hidden
-          initial={{ opacity: 0, y: 60, filter: "blur(16px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -60, filter: "blur(16px)" }}
-          transition={{ duration: 1.1, ease: EASE }}
-          className="pointer-events-none absolute right-[4%] top-1/2 hidden -translate-y-1/2 select-none text-[26rem] font-bold leading-none tracking-tighter text-white/[0.025] lg:block"
-        >
-          0{index + 1}
-        </motion.span>
-      </AnimatePresence>
-
-      {/* Anel decorativo girando lentamente */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[12%] top-1/2 hidden h-[80vh] w-[80vh] -translate-y-1/2 rounded-full border border-gold-500/[0.08] lg:block animate-spin-slow"
-      >
-        <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-500/60 shadow-[0_0_18px_4px_rgba(212,175,55,0.35)]" />
+        <div aria-hidden className="absolute inset-0">
+          {hero.slides.map((s, i) => {
+            const image = (s as { image?: string }).image;
+            if (!image) return null;
+            return (
+              <motion.div
+                key={image}
+                className="absolute inset-0"
+                initial={false}
+                animate={{
+                  opacity: i === index ? 1 : 0,
+                  scale: i === index ? 1 : 1.06,
+                }}
+                transition={{ duration: 1.3, ease: EASE }}
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  quality={80}
+                  className="object-cover object-[68%_center]"
+                />
+              </motion.div>
+            );
+          })}
+          {/* gradientes para legibilidade do texto à esquerda */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink-950/95 via-ink-950/60 to-ink-950/15" />
+          <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent" />
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-28 pt-32 md:px-8">

@@ -45,6 +45,7 @@ export const hero = {
       subtitle:
         "Software, design e estratégia em um único laboratório de tecnologia premium.",
       cta: { label: "Conheça a Machado Labs", href: "#sobre" },
+      image: "/hero/slide-1.png",
     },
     {
       kicker: "Software sob medida",
@@ -52,6 +53,7 @@ export const hero = {
       subtitle:
         "Sistemas, ERPs e plataformas construídos exatamente para a sua operação.",
       cta: { label: "Conhecer soluções", href: "#servicos" },
+      image: "/hero/slide-2.png",
     },
     {
       kicker: "Eficiência operacional",
@@ -59,6 +61,7 @@ export const hero = {
       subtitle:
         "Elimine o trabalho repetitivo. Processos que rodam sozinhos, 24 horas por dia.",
       cta: { label: "Automatizar processos", href: "#contato" },
+      image: "/hero/slide-3.png",
     },
     {
       kicker: "O futuro, agora",
@@ -66,6 +69,7 @@ export const hero = {
       subtitle:
         "Agentes, copilotos e modelos aplicados ao seu contexto — com resultado mensurável.",
       cta: { label: "Explorar IA", href: "#servicos" },
+      image: "/hero/slide-4.png",
     },
     {
       kicker: "Design & tecnologia",
@@ -73,6 +77,7 @@ export const hero = {
       subtitle:
         "Interfaces que impressionam nos primeiros cinco segundos — e convertem nos próximos.",
       cta: { label: "Iniciar projeto", href: site.whatsapp },
+      image: "/hero/slide-5.png",
     },
   ],
   scrollHint: "Role para explorar",

@@ -6,21 +6,48 @@
 
 export const site = {
   name: "Machado Labs",
+  legalName: "Machado Labs",
   url: "https://machadolabs.com.br",
+  /** Título usado em <title>, Open Graph e resultados de busca. */
+  title: "Machado Labs — Desenvolvimento de Software, IA e Automações",
+  /** Meta description: até ~155 caracteres, com as palavras-chave principais. */
   description:
-    "Machado Labs — engenharia de software premium. Desenvolvimento sob medida, inteligência artificial, automações e experiências digitais de classe mundial.",
+    "Desenvolvimento de software sob medida, inteligência artificial, automações e sistemas web. Estúdio de tecnologia premium para empresas que querem escalar.",
+  /** Resumo em uma frase — usado por IAs e no llms.txt. */
+  tagline:
+    "Estúdio brasileiro de engenharia de software que constrói sistemas, aplicativos, automações e soluções de inteligência artificial sob medida.",
   keywords: [
     "desenvolvimento de software",
-    "inteligência artificial",
-    "automações",
-    "sistemas web",
-    "aplicativos",
+    "desenvolvimento de sistemas web",
+    "criação de sites",
+    "inteligência artificial para empresas",
+    "automação de processos",
+    "desenvolvimento de aplicativos",
+    "ERP sob medida",
+    "CRM personalizado",
+    "software house",
+    "fábrica de software",
     "Machado Labs",
   ],
   email: "contato@machadolabs.com.br",
   phone: "+55 48 99223-4557",
+  /** E.164 — formato exigido pelo schema.org e por discadores. */
+  phoneE164: "+5548992234557",
   whatsapp:
     "https://wa.me/5548992234557?text=Ol%C3%A1!%20Quero%20iniciar%20um%20projeto%20com%20a%20Machado%20Labs.",
+  /**
+   * Localização para SEO local. O DDD 48 corresponde a Santa Catarina.
+   * Preencha `city` com a cidade real para ativar o SEO local completo
+   * (aparecer em buscas do tipo "desenvolvimento de software em <cidade>").
+   */
+  location: {
+    city: "",
+    state: "Santa Catarina",
+    stateCode: "SC",
+    country: "BR",
+    countryName: "Brasil",
+  },
+  foundingYear: "2018",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/machadolabs.br/" },
   ],

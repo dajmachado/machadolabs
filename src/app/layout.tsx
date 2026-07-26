@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/pt";
+import { jsonLdGraph } from "@/lib/schema";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Cursor from "@/components/effects/Cursor";
 import Spotlight from "@/components/effects/Spotlight";
@@ -15,31 +16,60 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Engenharia de Software Premium`,
+    default: site.title,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [...site.keywords],
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Engenharia de Software Premium`,
+    title: site.title,
     description: site.description,
-    images: [{ url: "/og.png", width: 1330, height: 546, alt: site.name }],
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — desenvolvimento de software, IA e automações`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Engenharia de Software Premium`,
+    title: site.title,
     description: site.description,
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { telephone: true, email: true, address: true },
+  // Preencha NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION no .env para validar
+  // a propriedade no Google Search Console.
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  other: {
+    // Sinaliza abrangência geográfica para buscadores regionais.
+    "geo.region": `${site.location.country}-${site.location.stateCode}`,
+    "geo.placename": site.location.city || site.location.state,
   },
 };
 
@@ -47,18 +77,6 @@ export const viewport: Viewport = {
   themeColor: "#060607",
   width: "device-width",
   initialScale: 1,
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  email: site.email,
-  telephone: site.phone,
-  description: site.description,
-  logo: `${site.url}/brand/logo-mark.png`,
-  sameAs: site.socials.map((s) => s.href),
 };
 
 export default function RootLayout({
@@ -69,7 +87,7 @@ export default function RootLayout({
       <body className="bg-ink-950 font-sans text-mist-100">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
         <SmoothScroll>
           <Spotlight />

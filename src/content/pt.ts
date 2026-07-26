@@ -291,40 +291,72 @@ export const cases = {
   subtitle: "Uma amostra do padrão Machado Labs em produção.",
   items: [
     {
-      tag: "Site institucional",
-      title: "SITUR Turismo — site e vitrine de excursões",
+      tag: "Turismo · Plataforma completa",
+      title: "SITUR Turismo",
       description:
-        "Carrossel de banners gerenciável, catálogo de viagens, galeria de fotos, depoimentos e contato direto por WhatsApp.",
-      image: "/cases/situr-site.jpg",
-      alt: "Página inicial do site da SITUR Turismo com carrossel de excursões",
-      metrics: ["Next.js 15", "Conteúdo gerenciável", "SEO otimizado"],
+        "Do site institucional ao controle financeiro: vitrine de excursões, reserva online com escolha de poltrona e um painel que gerencia toda a operação da agência.",
+      metrics: [
+        "Next.js 15",
+        "Pix e cartão em 12x",
+        "Mapa de poltronas",
+        "Painel administrativo",
+      ],
+      gallery: [
+        {
+          src: "/cases/situr-1.jpg",
+          caption: "Home com carrossel de excursões gerenciável",
+          alt: "Página inicial do site da SITUR Turismo com carrossel de excursões",
+        },
+        {
+          src: "/cases/situr-2.jpg",
+          caption: "Checkout com seleção de poltronas por ônibus",
+          alt: "Tela de checkout da SITUR com o mapa de poltronas dos ônibus",
+        },
+        {
+          src: "/cases/situr-3.jpg",
+          caption: "Dashboard administrativo da operação",
+          alt: "Painel administrativo da SITUR com métricas e próximas viagens",
+        },
+        {
+          src: "/cases/situr-4.jpg",
+          caption: "Gestão de reservas online",
+          alt: "Tela de reservas online no painel administrativo da SITUR",
+        },
+      ],
     },
     {
-      tag: "Checkout online",
-      title: "Reserva com escolha de poltrona",
-      description:
-        "Mapa interativo de poltronas por ônibus, fluxo em três etapas e pagamento via Pix ou cartão em até 12x.",
-      image: "/cases/situr-checkout.jpg",
-      alt: "Tela de checkout da SITUR com mapa de poltronas dos ônibus",
-      metrics: ["Pix e cartão 12x", "Mapa de poltronas", "Checkout em 3 passos"],
-    },
-    {
-      tag: "Painel administrativo",
-      title: "Gestão completa da operação",
-      description:
-        "Dashboard com viagens, reservas online, clientes, parcelamentos, venda no balcão e controle financeiro por excursão.",
-      image: "/cases/situr-admin.jpg",
-      alt: "Dashboard administrativo da SITUR com métricas e próximas viagens",
-      metrics: ["Financeiro por viagem", "Venda no balcão", "Lista de passageiros"],
-    },
-    {
-      tag: "Aplicação web",
+      tag: "Educação · Aplicação web",
       title: "Quiz Bíblico — Café Cristão",
       description:
-        "Plataforma de quiz com autenticação por e-mail e Google, histórico de partidas e área administrativa.",
-      image: "/cases/quiz-login.jpg",
-      alt: "Tela de login da plataforma Quiz Bíblico",
-      metrics: ["React + Spring Boot", "Login com Google", "API REST"],
+        "Quiz com níveis progressivos: o jogador sobe ou desce de dificuldade conforme o desempenho, com histórico de partidas e revisão de cada resposta.",
+      metrics: [
+        "React + Spring Boot",
+        "Login com Google",
+        "Níveis adaptativos",
+        "API REST",
+      ],
+      gallery: [
+        {
+          src: "/cases/quiz-1.jpg",
+          caption: "Acesso por e-mail ou conta Google",
+          alt: "Tela de login da plataforma Quiz Bíblico",
+        },
+        {
+          src: "/cases/quiz-2.jpg",
+          caption: "Correção imediata a cada resposta",
+          alt: "Pergunta do quiz com a alternativa correta destacada",
+        },
+        {
+          src: "/cases/quiz-3.jpg",
+          caption: "Resultado e avanço de nível",
+          alt: "Tela de resultado do quiz mostrando avanço de nível",
+        },
+        {
+          src: "/cases/quiz-4.jpg",
+          caption: "Painel com histórico e regras de progressão",
+          alt: "Dashboard do Quiz Bíblico com estatísticas e histórico de sessões",
+        },
+      ],
     },
   ],
 } as const;

@@ -119,8 +119,8 @@ export const about = {
     "Cada projeto é tratado como peça única. Sem templates, sem atalhos, sem soluções genéricas. Arquitetura pensada, código limpo e uma obsessão saudável por detalhes — do primeiro pixel ao último deploy.",
   ],
   stats: [
-    { value: "50+", label: "Projetos entregues" },
-    { value: "8", label: "Anos de experiência" },
+    { value: "20+", label: "Projetos entregues" },
+    { value: "4", label: "Anos de experiência" },
     { value: "99,9%", label: "Uptime em produção" },
     { value: "24/7", label: "Monitoramento" },
   ],
@@ -291,28 +291,40 @@ export const cases = {
   subtitle: "Uma amostra do padrão Machado Labs em produção.",
   items: [
     {
-      tag: "Plataforma SaaS",
-      title: "Gestão inteligente para redes de varejo",
+      tag: "Site institucional",
+      title: "SITUR Turismo — site e vitrine de excursões",
       description:
-        "ERP em nuvem com BI integrado, processando milhares de pedidos por dia.",
-      device: "desktop",
-      metrics: ["‑38% custo operacional", "99,99% uptime"],
+        "Carrossel de banners gerenciável, catálogo de viagens, galeria de fotos, depoimentos e contato direto por WhatsApp.",
+      image: "/cases/situr-site.jpg",
+      alt: "Página inicial do site da SITUR Turismo com carrossel de excursões",
+      metrics: ["Next.js 15", "Conteúdo gerenciável", "SEO otimizado"],
     },
     {
-      tag: "E-commerce",
-      title: "Loja premium com checkout em 1 toque",
+      tag: "Checkout online",
+      title: "Reserva com escolha de poltrona",
       description:
-        "Experiência de compra cinematográfica com conversão acima da média do setor.",
-      device: "tablet",
-      metrics: ["+62% conversão", "LCP 0,9s"],
+        "Mapa interativo de poltronas por ônibus, fluxo em três etapas e pagamento via Pix ou cartão em até 12x.",
+      image: "/cases/situr-checkout.jpg",
+      alt: "Tela de checkout da SITUR com mapa de poltronas dos ônibus",
+      metrics: ["Pix e cartão 12x", "Mapa de poltronas", "Checkout em 3 passos"],
     },
     {
-      tag: "App Mobile",
-      title: "Operações de campo em tempo real",
+      tag: "Painel administrativo",
+      title: "Gestão completa da operação",
       description:
-        "Aplicativo offline-first para equipes externas, sincronizado com a central.",
-      device: "mobile",
-      metrics: ["4,9★ nas lojas", "‑70% retrabalho"],
+        "Dashboard com viagens, reservas online, clientes, parcelamentos, venda no balcão e controle financeiro por excursão.",
+      image: "/cases/situr-admin.jpg",
+      alt: "Dashboard administrativo da SITUR com métricas e próximas viagens",
+      metrics: ["Financeiro por viagem", "Venda no balcão", "Lista de passageiros"],
+    },
+    {
+      tag: "Aplicação web",
+      title: "Quiz Bíblico — Café Cristão",
+      description:
+        "Plataforma de quiz com autenticação por e-mail e Google, histórico de partidas e área administrativa.",
+      image: "/cases/quiz-login.jpg",
+      alt: "Tela de login da plataforma Quiz Bíblico",
+      metrics: ["React + Spring Boot", "Login com Google", "API REST"],
     },
   ],
 } as const;

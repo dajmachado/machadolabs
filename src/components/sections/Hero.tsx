@@ -19,6 +19,9 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  // Em telas touch, evita animar filter/scale em camadas fullscreen:
+  // GPUs mobile repintam o frame inteiro e a tela pisca.
+  const [lite, setLite] = useState(false);
   const reduced = useReducedMotion();
   const parallaxRef = useRef<HTMLDivElement>(null);
   const slide = hero.slides[index];
@@ -27,6 +30,10 @@ export default function Hero() {
     () => setIndex((i) => (i + 1) % hero.slides.length),
     [],
   );
+
+  useEffect(() => {
+    setLite(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   useEffect(() => {
     if (paused || reduced) return;
@@ -71,9 +78,9 @@ export default function Hero() {
                 initial={false}
                 animate={{
                   opacity: i === index ? 1 : 0,
-                  scale: i === index ? 1 : 1.06,
+                  scale: lite ? 1 : i === index ? 1 : 1.06,
                 }}
-                transition={{ duration: 1.3, ease: EASE }}
+                transition={{ duration: lite ? 0.9 : 1.3, ease: EASE }}
               >
                 <Image
                   src={image}
@@ -99,7 +106,11 @@ export default function Hero() {
             key={index}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 0.985, filter: "blur(10px)" }}
+            exit={
+              lite
+                ? { opacity: 0 }
+                : { opacity: 0, scale: 0.985, filter: "blur(10px)" }
+            }
             transition={{ duration: 0.55, ease: EASE }}
             className="max-w-3xl"
           >
@@ -140,8 +151,8 @@ export default function Hero() {
 
             {/* Subtítulo */}
             <motion.p
-              initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={lite ? { opacity: 0, y: 22 } : { opacity: 0, y: 22, filter: "blur(6px)" }}
+              animate={lite ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.65, ease: EASE }}
               className="mt-7 max-w-xl text-base leading-relaxed text-mist-500 md:text-lg"
             >

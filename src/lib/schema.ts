@@ -29,6 +29,7 @@ const organization = {
   "@id": ORG_ID,
   name: site.name,
   legalName: site.legalName,
+  taxID: site.cnpj,
   alternateName: ["MachadoLabs", "Machado Labs Tecnologia"],
   url: site.url,
   logo: {

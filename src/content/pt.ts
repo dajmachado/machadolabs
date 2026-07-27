@@ -6,7 +6,8 @@
 
 export const site = {
   name: "Machado Labs",
-  legalName: "Machado Labs",
+  legalName: "Daniel Joaquim Machado",
+  cnpj: "48.487.283/0001-74",
   url: "https://machadolabs.com.br",
   /** Título usado em <title>, Open Graph e resultados de busca. */
   title: "Machado Labs — Desenvolvimento de Software, IA e Automações",
@@ -472,7 +473,7 @@ export const privacy = {
     {
       title: "Quem é o responsável",
       body: [
-        "A Machado Labs é a controladora dos dados tratados neste site, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018).",
+        "A Machado Labs, nome fantasia de Daniel Joaquim Machado, inscrita no CNPJ sob o nº 48.487.283/0001-74, é a controladora dos dados tratados neste site, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018).",
         "Para qualquer assunto relacionado a privacidade, fale com contato@machadolabs.com.br. Respondemos em até 15 dias.",
       ],
     },

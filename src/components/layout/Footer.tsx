@@ -94,10 +94,11 @@ export default function Footer() {
         </Reveal>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row">
-          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
+          <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-5 sm:text-left">
             <p className="text-xs text-mist-600">
               © {year} {site.name}. {footer.rights}
             </p>
+            <p className="text-xs text-mist-600">CNPJ {site.cnpj}</p>
             <Link
               href={`/${privacy.slug}`}
               className="text-xs text-mist-600 underline-offset-4 transition-colors duration-300 hover:text-gold-400 hover:underline"

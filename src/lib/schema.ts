@@ -45,8 +45,9 @@ const organization = {
   telephone: site.phoneE164,
   address: address(),
   areaServed: [
-    { "@type": "Country", name: site.location.countryName },
+    ...(site.location.city ? [{ "@type": "City", name: site.location.city }] : []),
     { "@type": "State", name: site.location.state },
+    { "@type": "Country", name: site.location.countryName },
   ],
   knowsAbout: [
     "Desenvolvimento de software sob medida",

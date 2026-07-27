@@ -28,6 +28,8 @@ export const site = {
     "CRM personalizado",
     "software house",
     "fábrica de software",
+    "desenvolvimento de software em São José SC",
+    "desenvolvimento de software em Santa Catarina",
     "Machado Labs",
   ],
   email: "contato@machadolabs.com.br",
@@ -42,7 +44,7 @@ export const site = {
    * (aparecer em buscas do tipo "desenvolvimento de software em <cidade>").
    */
   location: {
-    city: "",
+    city: "São José",
     state: "Santa Catarina",
     stateCode: "SC",
     country: "BR",

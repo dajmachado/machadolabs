@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Analytics from "@/components/providers/Analytics";
 import { site } from "@/content/pt";
 import { jsonLdGraph } from "@/lib/schema";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -98,8 +98,8 @@ export default function RootLayout({
           <Cursor />
           {children}
         </SmoothScroll>
-        {/* Só carrega se NEXT_PUBLIC_GA_ID estiver definido no build. */}
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {/* Analytics só é carregado após o aceite explícito do visitante. */}
+        <Analytics gaId={gaId} />
       </body>
     </html>
   );

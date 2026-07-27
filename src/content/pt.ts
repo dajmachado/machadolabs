@@ -457,6 +457,14 @@ export const cta = {
   secondary: "ou escreva para",
 } as const;
 
+export const consent = {
+  title: "Sua privacidade",
+  description:
+    "Usamos cookies de análise para entender como o site é usado e melhorá-lo. Nada é usado para publicidade, e você pode recusar sem perder nenhuma funcionalidade.",
+  accept: "Aceitar",
+  reject: "Recusar",
+} as const;
+
 export const footer = {
   tagline: "Engenharia de software premium.",
   sections: [

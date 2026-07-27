@@ -8,6 +8,58 @@ import CookieConsent from "@/components/ui/CookieConsent";
 const STORAGE_KEY = "ml-consent";
 type Decision = "granted" | "denied";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Registra os cliques que levam o visitante para fora do site (WhatsApp e
+ * e-mail). Sem isso o Analytics vê a visita mas nunca sabe que ela virou
+ * contato — e o Google Ads não consegue otimizar por conversão.
+ *
+ * Usa `generate_lead`, o nome de evento que o GA4 reconhece e que pode ser
+ * importado como conversão no Google Ads.
+ */
+function useLeadTracking(active: boolean) {
+  useEffect(() => {
+    if (!active) return;
+
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement)?.closest?.("a");
+      if (!link) return;
+
+      const href = link.getAttribute("href") ?? "";
+      const method = href.includes("wa.me")
+        ? "whatsapp"
+        : href.startsWith("mailto:")
+          ? "email"
+          : null;
+      if (!method) return;
+
+      // de qual parte da página partiu o clique — mostra o que converte
+      const secao = link.closest("section")?.id;
+      const origem =
+        secao ||
+        (link.closest("footer")
+          ? "rodape"
+          : link.closest("header")
+            ? "menu"
+            : "outro");
+
+      window.gtag?.("event", "generate_lead", {
+        method,
+        origem,
+        link_text: link.textContent?.trim().slice(0, 60) || method,
+      });
+    };
+
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, [active]);
+}
+
 /**
  * Orquestra o consentimento (LGPD) e o carregamento do Google Analytics.
  *
@@ -30,6 +82,9 @@ export default function Analytics({ gaId }: { gaId?: string }) {
     const t = setTimeout(() => setAsking(true), 3600);
     return () => clearTimeout(t);
   }, [gaId]);
+
+  // só mede contatos depois do aceite — o gtag nem existe antes disso
+  useLeadTracking(decision === "granted");
 
   const decide = (value: Decision) => {
     window.localStorage.setItem(STORAGE_KEY, value);

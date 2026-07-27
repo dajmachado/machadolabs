@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { ShieldCheck } from "lucide-react";
-import { consent } from "@/content/pt";
+import { consent, privacy } from "@/content/pt";
 
 /**
  * Banner de consentimento LGPD. Puramente apresentacional — quem decide
@@ -37,7 +38,14 @@ export default function CookieConsent({
           <div>
             <p className="text-sm font-semibold text-mist-100">{consent.title}</p>
             <p className="mt-1 text-xs leading-relaxed text-mist-500">
-              {consent.description}
+              {consent.description}{" "}
+              <Link
+                href={`/${privacy.slug}`}
+                className="text-gold-400 underline-offset-2 transition-colors hover:text-gold-300 hover:underline"
+              >
+                Saiba mais
+              </Link>
+              .
             </p>
           </div>
         </div>

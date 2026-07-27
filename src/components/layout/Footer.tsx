@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUp } from "lucide-react";
-import { footer, nav, site } from "@/content/pt";
+import { footer, privacy, site } from "@/content/pt";
 import { scrollToAnchor } from "@/components/providers/SmoothScroll";
 import Reveal from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
@@ -93,9 +94,17 @@ export default function Footer() {
         </Reveal>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row">
-          <p className="text-xs text-mist-600">
-            © {year} {site.name}. {footer.rights}
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
+            <p className="text-xs text-mist-600">
+              © {year} {site.name}. {footer.rights}
+            </p>
+            <Link
+              href={`/${privacy.slug}`}
+              className="text-xs text-mist-600 underline-offset-4 transition-colors duration-300 hover:text-gold-400 hover:underline"
+            >
+              {privacy.title}
+            </Link>
+          </div>
           <Magnetic>
             <button
               type="button"

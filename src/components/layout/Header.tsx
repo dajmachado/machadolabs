@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { nav, site } from "@/content/pt";
@@ -16,6 +17,9 @@ import Button from "@/components/ui/Button";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -34,6 +38,11 @@ export default function Header() {
   const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setOpen(false);
+    // fora da home a âncora não existe: volta para a página inicial com o hash
+    if (!isHome) {
+      router.push(`/${href}`);
+      return;
+    }
     // aguarda o overlay fechar antes de rolar
     setTimeout(() => scrollToAnchor(href), open ? 350 : 0);
   };
@@ -54,12 +63,16 @@ export default function Header() {
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 md:px-8">
           <a
-            href="#"
+            href="/"
             aria-label="Machado Labs — início"
             onClick={(e) => {
-              e.preventDefault();
               setOpen(false);
-              window.__lenis ? window.__lenis.scrollTo(0, { duration: 1.4 }) : window.scrollTo({ top: 0, behavior: "smooth" });
+              // fora da home deixa o link navegar normalmente
+              if (!isHome) return;
+              e.preventDefault();
+              window.__lenis
+                ? window.__lenis.scrollTo(0, { duration: 1.4 })
+                : window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="group flex items-center gap-3"
           >

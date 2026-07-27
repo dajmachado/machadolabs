@@ -457,6 +457,92 @@ export const cta = {
   secondary: "ou escreva para",
 } as const;
 
+/**
+ * Política de privacidade. O texto descreve exatamente o que o site faz hoje:
+ * nenhum formulário, nenhum cadastro, e um único cookie de análise sujeito a
+ * aceite. Se algo mudar no site, este conteúdo precisa ser revisto junto.
+ */
+export const privacy = {
+  slug: "politica-de-privacidade",
+  title: "Política de Privacidade",
+  updatedAt: "julho de 2026",
+  intro:
+    "Esta política explica, sem rodeios, quais dados a Machado Labs coleta neste site, por que coleta e o que você pode fazer a respeito. Ela vale apenas para o site machadolabs.com.br — projetos entregues a clientes têm suas próprias políticas.",
+  sections: [
+    {
+      title: "Quem é o responsável",
+      body: [
+        "A Machado Labs é a controladora dos dados tratados neste site, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018).",
+        "Para qualquer assunto relacionado a privacidade, fale com contato@machadolabs.com.br. Respondemos em até 15 dias.",
+      ],
+    },
+    {
+      title: "O que este site NÃO faz",
+      body: [
+        "Não há formulários de cadastro, login ou área do cliente. O site não pede seu nome, e-mail, telefone ou qualquer dado pessoal para funcionar.",
+        "Não vendemos, alugamos nem compartilhamos dados com terceiros para fins comerciais ou publicitários.",
+        "Não usamos cookies de publicidade, remarketing ou rastreamento entre sites.",
+      ],
+    },
+    {
+      title: "Dados coletados",
+      body: [
+        "Se — e somente se — você clicar em “Aceitar” no aviso de privacidade, passamos a usar o Google Analytics para entender como o site é utilizado. Ele registra dados de navegação como páginas visitadas, tempo de permanência, tipo de dispositivo, navegador, idioma, localização aproximada (cidade/estado, nunca endereço) e de qual site ou busca você veio.",
+        "Esses dados são estatísticos e não identificam você pessoalmente. Enquanto você não aceitar, nenhum script do Google é carregado e nenhum dado é enviado.",
+        "Independentemente da sua escolha, nosso servidor mantém registros técnicos de acesso (endereço IP, data, hora e página solicitada) por prazo limitado. Isso é padrão de qualquer servidor web e serve para segurança e diagnóstico de falhas.",
+      ],
+    },
+    {
+      title: "Por que coletamos",
+      body: [
+        "Para melhorar o site: entender quais conteúdos interessam, identificar páginas com problema e ajustar a experiência.",
+        "A base legal é o seu consentimento (art. 7º, I da LGPD) para os dados de análise, e o legítimo interesse (art. 7º, IX) para os registros técnicos de segurança do servidor.",
+      ],
+    },
+    {
+      title: "Com quem os dados são compartilhados",
+      body: [
+        "Apenas com o Google, na condição de operador, quando você autoriza o uso do Google Analytics. O tratamento segue a política de privacidade do Google, disponível em policies.google.com/privacy.",
+        "A hospedagem do site é feita em servidor próprio contratado junto à Oracle Cloud.",
+      ],
+    },
+    {
+      title: "Cookies",
+      body: [
+        "Usamos apenas cookies de análise, criados pelo Google Analytics após o seu aceite. Eles servem para distinguir visitas novas de recorrentes e medir o uso do site.",
+        "Sua escolha (aceitar ou recusar) fica guardada no seu próprio navegador para que não seja preciso responder de novo a cada visita. Recusar não limita nenhuma funcionalidade.",
+      ],
+    },
+    {
+      title: "Como revogar o consentimento",
+      body: [
+        "Você pode mudar de ideia a qualquer momento. Limpe os dados de navegação do site nas configurações do seu navegador: isso apaga a sua escolha e o aviso aparecerá novamente na próxima visita, permitindo recusar.",
+        "Também é possível bloquear cookies diretamente nas configurações do navegador ou instalar a extensão oficial de desativação do Google Analytics.",
+      ],
+    },
+    {
+      title: "Seus direitos",
+      body: [
+        "A LGPD garante a você o direito de confirmar a existência de tratamento, acessar seus dados, corrigir dados incompletos ou desatualizados, solicitar anonimização ou eliminação, revogar o consentimento e obter informação sobre com quem compartilhamos dados.",
+        "Para exercer qualquer um desses direitos, escreva para contato@machadolabs.com.br.",
+      ],
+    },
+    {
+      title: "Segurança",
+      body: [
+        "O site trafega exclusivamente por conexão criptografada (HTTPS) e aplica cabeçalhos de segurança que restringem a origem de scripts e impedem que a página seja incorporada em outros sites.",
+        "Nenhum sistema é perfeitamente seguro, mas mantemos o servidor atualizado e monitorado.",
+      ],
+    },
+    {
+      title: "Alterações nesta política",
+      body: [
+        "Se o site passar a coletar dados de forma diferente, esta página será atualizada e a data de revisão no topo mudará. Recomendamos consultá-la periodicamente.",
+      ],
+    },
+  ],
+} as const;
+
 export const consent = {
   title: "Sua privacidade",
   description:

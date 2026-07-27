@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { site } from "@/content/pt";
 import { jsonLdGraph } from "@/lib/schema";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -79,6 +80,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/** ID de medição do GA4 (formato G-XXXXXXXXXX). Ausente = analytics desligado. */
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -94,6 +98,8 @@ export default function RootLayout({
           <Cursor />
           {children}
         </SmoothScroll>
+        {/* Só carrega se NEXT_PUBLIC_GA_ID estiver definido no build. */}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );
